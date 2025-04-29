@@ -8,7 +8,8 @@ import com.example.juicetracker_interop.R
 
 @Entity
 data class Juice(
-    @PrimaryKey val id: Int = 0,
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0,
     val name: String,
     val description: String,
     val color: String,
