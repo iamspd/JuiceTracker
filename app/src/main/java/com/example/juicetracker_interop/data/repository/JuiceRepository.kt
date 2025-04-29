@@ -9,6 +9,6 @@ interface JuiceRepository {
     suspend fun updateJuice(juice: Juice)
     suspend fun deleteJuice(juice: Juice)
 
-    fun getJuiceStream() : Flow<List<Juice>>
-    fun getJuiceById(id: Long) : Flow<Juice>
+    fun getJuiceStream(): Flow<List<Juice>>
+    fun getJuiceById(id: Long): Flow<Juice>
 }
