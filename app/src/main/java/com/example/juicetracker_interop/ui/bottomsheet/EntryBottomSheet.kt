@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.juicetracker_interop.R
 import com.example.juicetracker_interop.data.model.Juice
+import com.example.juicetracker_interop.data.model.JuiceColor
 import com.example.juicetracker_interop.ui.home.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -108,6 +109,18 @@ fun SheetForm(
             fieldValue = juice.description,
             onFieldValueChanged = { onUpdateJuice(juice.copy(description = it)) }
         )
+        ColorSpinnerRow(
+            modifier = Modifier.fillMaxWidth(),
+            colorSpinnerPosition = findColorIndex(juice.color),
+            onColorChange = { color ->
+                onUpdateJuice(juice.copy(color = JuiceColor.entries[color].name))
+            }
+        )
+        RatingInputRow(
+            modifier = Modifier.fillMaxWidth(),
+            rating = juice.rating,
+            onRatingChange = { rating -> onUpdateJuice(juice.copy(rating = rating)) }
+        )
         ButtonRow(
             modifier = Modifier.fillMaxWidth(),
             onCancelClick = onCancelClick,
@@ -125,15 +138,15 @@ fun InputRow(
 ) {
     Row(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
             text = stringResource(fieldLabel),
-            style = MaterialTheme.typography.labelMedium
+            style = MaterialTheme.typography.labelMedium,
+            modifier = Modifier.weight(1f)
         )
         TextField(
-            modifier = Modifier.weight(1f),
+            modifier = Modifier.weight(3f),
             value = fieldValue,
             onValueChange = onFieldValueChanged,
             singleLine = true,
@@ -165,4 +178,9 @@ fun ButtonRow(
             Text(stringResource(R.string.save))
         }
     }
+}
+
+private fun findColorIndex(color: String): Int {
+    val juiceColor = JuiceColor.valueOf(color)
+    return JuiceColor.entries.indexOf(juiceColor)
 }
