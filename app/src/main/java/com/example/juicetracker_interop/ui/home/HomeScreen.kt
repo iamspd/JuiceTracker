@@ -69,6 +69,16 @@ fun HomeScreen() {
                 modifier = Modifier
                     .padding(innerPadding)
             ) {
+
+                AdBanner(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(
+                            top = dimensionResource(R.dimen.padding_medium),
+                            bottom = dimensionResource(R.dimen.padding_small)
+                        )
+                )
+
                 when (homeScreenUiState) {
                     is HomeScreenUi.Empty -> {
                         Column(
