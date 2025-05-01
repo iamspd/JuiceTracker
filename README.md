@@ -18,7 +18,7 @@ JuiceTracker is a simple Android application built to help you keep track of you
 
 | Home Screen                                    | Add/Edit Juice Screen                              |
 | :--------------------------------------------: | :------------------------------------------------: |
-| ![Home Screen](placeholder_home_screen.png)    | ![Add/Edit Screen](placeholder_add_edit_screen.png)|
+| <img src="https://github.com/user-attachments/assets/81e58437-5eec-4338-8353-d94765886cba" alt="home screen" style="width:20%; height:auto;"/>    | <img src="https://github.com/user-attachments/assets/9a950b60-612a-4aee-a496-bb7837caff72" alt="edit screen" style="width:20%; height:auto;"/>|
 | *Displays the list of saved juices.* | *Bottom sheet for adding or editing juice details.*|
 
 ## 💻 Tech Stack & Concepts
